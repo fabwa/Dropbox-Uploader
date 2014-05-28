@@ -300,7 +300,7 @@ function urlencode
         c=${string:$pos:1}
         case "$c" in
             [-_.~a-zA-Z0-9] ) o="${c}" ;;
-            * ) printf -v o '%%%02x' "'$c"
+            * ) /usr/bin/printf -v o '%%%02x' "'$c"
         esac
         encoded+="${o}"
     done
@@ -940,7 +940,7 @@ function db_list
                 fi
 
                 FILE=$(echo -e "$FILE")
-                printf " [$TYPE] %-${padding}s %s\n" "$SIZE" "$FILE"
+                /usr/bin/printf " [$TYPE] %-${padding}s %s\n" "$SIZE" "$FILE"
 
             done < $RESPONSE_FILE
 
